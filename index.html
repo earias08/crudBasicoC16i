@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- agregar las etiquetas meta -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Crud Productos</title>
+</head>
+<body>
+    <header></header>
+    <main class="container my-5">
+        <section>
+          <h1 class="display-3 text-center">Administrador productos</h1>
+          <hr />
+          <article class="bg-light p-3 my-5">
+            <h3>Cargar productos</h3>
+            <hr />
+            <form >
+              <div class="mb-3">
+                <label for="" class="form-label">Codigo</label>
+                <input
+                  id='codigo'
+                  type="text"
+                  class="form-control"
+         
+                  minlength="3"
+                  maxlength="10"
+                  />
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Producto</label>
+                <input type="text" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">descripcion</label>
+                <input type="text" class="form-control"  />
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">cantidad</label>
+                <input type="number" class="form-control"  />
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">URL</label>
+                <input type="text" class="form-control"  />
+              </div>
+              <button class="btn btn-primary" type="submit">Guardar</button>
+            </form>
+          </article>
+          
+        </section>
+      </main>
+      <footer></footer>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
