@@ -46,7 +46,7 @@
         <article class="bg-light p-3 my-5">
           <h3>Cargar productos</h3>
           <hr />
-          <form>
+          <form id='formProducto'>
             <div class="mb-3">
               <label for="" class="form-label">Codigo</label>
               <input
@@ -54,9 +54,9 @@
                 type="text"
                 class="form-control"
                 placeholder="Ingresar un codigo"
-                required
-                onblur="validarCampoRequerido(this)"
-              />
+                
+                />
+                <!-- onblur="validarCampoRequerido(this)" -->
               <div class="valid-feedback">Este campo es correcto</div>
               <div class="invalid-feedback">Este campo es obligatorio</div>
             </div>
@@ -67,15 +67,13 @@
                 type="text"
                 class="form-control"
                 placeholder="mouse logitec"
-                required
-                minlength="3"
-                maxlength="35"
+            
               />
               <div class="invalid-feedback">Este campo es obligatorio</div>
             </div>
             <div class="mb-3">
               <label for="" class="form-label">descripcion</label>
-              <input type="text" class="form-control" />
+              <textarea  id="descripcion" class="form-control" ></textarea>
             </div>
             <div class="mb-3">
               <label for="" class="form-label">cantidad</label>
@@ -89,9 +87,12 @@
             </div>
             <div class="mb-3">
               <label for="" class="form-label">URL</label>
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control" id='url' />
             </div>
             <button class="btn btn-primary" type="submit">Guardar</button>
+            <div class="alert alert-danger mt-4 d-none" role="alert" id='msjAlerta'>
+             Debe completar todos los datos marcados
+            </div>
           </form>
         </article>
       </section>
