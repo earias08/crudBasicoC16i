@@ -36,6 +36,7 @@ url.addEventListener("blur", () => {
 });
 formulario.addEventListener("submit", guardarProducto);
 
+// verificar si hay datos en localstorage
 cargaInicial();
 
 function guardarProducto(e){
@@ -59,10 +60,46 @@ function agregarProducto(){
   // guardar en localstorage
   localStorage.setItem('listaProductosKey', JSON.stringify(listaProductos));
   // limpiar el formulario
+  limpiarFormulario();
   // dibujar fila en la tabla
+  crearFila(productoNuevo);
 }
 
 function cargaInicial(){
+  // si hay algo en localstorage lo guardo en arreglo sino dejo el arreglo vacio.
   listaProductos = JSON.parse(localStorage.getItem('listaProductosKey')) || [];
   console.log(listaProductos)
+
+  // llamar a la funcion que crea filas
+  listaProductos.forEach( itemProducto => {
+    crearFila(itemProducto);
+   } )
+}
+
+
+function crearFila(itemProducto){
+  console.log(itemProducto);
+  // traigo el nodo padre que seria el tbody
+  let tabla = document.querySelector('#tablaProductos');
+  // console.log(tabla);
+  tabla.innerHTML += `<tr>
+  <th scope="row">${itemProducto.codigo}</th>
+  <td>${itemProducto.nombreProducto}</td>
+  <td>${itemProducto.descripcion}</td>
+  <td>${itemProducto.cantidad}</td>
+  <td>${itemProducto.url}</td>
+  <td>
+    <button class="btn btn-warning">Editar</button>
+    <button class="btn btn-danger">Borrar</button>
+  </td>
+</tr>`
+
+}
+
+function limpiarFormulario(){
+  // limpia los value de los elementos del form
+  formulario.reset();
+  // limpiar las clases de cada elemento del form
+  codigo.className = 'form-control';
+  // tarea terminar de limpiar todos los inputs
 }
